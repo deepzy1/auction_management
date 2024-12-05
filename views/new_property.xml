@@ -45,7 +45,7 @@
                         <field name="state"/>
                     </group>
                     <group>
-                        <field name="document"/>
+                        <field name="document" required="0"/>
                     </group>
                     <group>
                         <field name="image_ids">

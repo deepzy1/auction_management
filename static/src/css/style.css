@@ -1,0 +1,67 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333;
+    line-height: 3;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table th {
+    background-color: #487d42;
+    color: white;
+    text-align: center;
+    line-height: 3;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+/* Light Theme (default) */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: black;
+    color: black;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button.dark-theme {
+    background-color: white;
+    color: black;
+}
+
+button:not(.dark-theme) {
+    background-color: black;
+    color: white;
+}
+
