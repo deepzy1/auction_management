@@ -2,7 +2,7 @@
 <odoo>
     <menuitem id="menu_auction_root"
         name="Auction"
-        sequence="36"/>
+        sequence="1"/>
 
     <menuitem id="menu_property"
         name="Properties"
