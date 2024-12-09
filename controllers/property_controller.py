@@ -10,3 +10,7 @@ class PropertyController(http.Controller):
         return request.render('auction_management.property_list_template', {
             'properties': properties,
         })
+
+
+
+
