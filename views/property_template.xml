@@ -1,7 +1,7 @@
 <odoo>
     <template id="property_list_template" name="Property List Page">
         <!-- Load frontend assets -->
-        <t t-call-assets="web.assets_frontend" />
+        <t t-call-assets="web.assets_frontend"/>
 
         <!-- Load your custom CSS -->
         <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/style.css"/>
@@ -12,16 +12,28 @@
                 <t t-foreach="properties" t-as="property">
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img t-att-src="property.image_ids[0].image and '/web/image/property.image/' + str(property.image_ids[0].id) + '/image' or '/web/static/src/img/placeholder.png'"
+                            <img t-if="property.image_ids and property.image_ids[0].image"
+                                 t-att-src="'/web/image/property.image/' + str(property.image_ids[0].id) + '/image'"
                                  class="card-img-top"
-                                 alt="Property Image" />
+                                 alt="Property Image"/>
+
                             <div class="card-body">
-                                <h5 class="card-title"><t t-esc="property.name" /></h5>
+                                <h5 class="card-title">
+                                    <t t-esc="property.name"/>
+                                </h5>
                                 <p class="card-text">
-                                    <strong>Type:</strong> <t t-esc="property.type.name" /><br />
-                                    <strong>Address:</strong> <t t-esc="property.address" /><br />
-                                    <strong>City:</strong> <t t-esc="property.city" /><br />
-                                    <strong>Price:</strong> ₹<t t-esc="property.price" />
+                                    <strong>Type:</strong>
+                                    <t t-esc="property.type.name"/>
+                                    <br/>
+                                    <strong>Address:</strong>
+                                    <t t-esc="property.address"/>
+                                    <br/>
+                                    <strong>City:</strong>
+                                    <t t-esc="property.city"/>
+                                    <br/>
+                                    <strong>Price:</strong>
+                                    ₹
+                                    <t t-esc="property.price"/>
                                 </p>
                             </div>
                         </div>
