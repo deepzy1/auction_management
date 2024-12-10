@@ -1,0 +1,44 @@
+<odoo>
+    <template id="auction_detail" name="Auction Details">
+    <t t-call-assets="web.assets_frontend"/>
+        <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
+
+        <div class="container">
+            <h1><t t-esc="auction.auction_name" /></h1>
+            <p>Property: <t t-esc="auction.auction_property.name" /></p>
+            <p>Highest Bid: <span id="highest_bid"><t t-esc="auction.highest_bid" /></span></p>
+            <p>End Time: <span id="timer"></span></p>
+
+            <form id="bid_form">
+                <input type="hidden" name="auction_id" t-att-value="auction.id" />
+                <input type="number" name="bid_amount" placeholder="Enter your bid"  />
+                <button type="button" id="place_bid">Place Bid</button>
+            </form>
+
+            <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
+        </div>
+
+</template>
+
+    <template id="auction_list" name="Auction List">
+    <t t-call-assets="web.assets_frontend"/>
+        <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
+
+        <div class="container">
+            <h1>Available Auctions</h1>
+            <ul>
+                <t t-foreach="auctions" t-as="auction">
+                    <li>
+                        <a t-att-href="'/auction/' + str(auction.id)">
+                            <t t-esc="auction.auction_name" />
+                        </a>
+                        (Ends: <t t-esc="auction.end_date" />)
+                    </li>
+                </t>
+            </ul>
+        </div>
+
+</template>
+
+
+</odoo>

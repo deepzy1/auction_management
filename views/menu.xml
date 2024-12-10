@@ -30,9 +30,12 @@
 
 <!--    <menuitem id="menu_bid_rules" name="Manage Bid Rules" parent="menu_auction_root" action="action_bid_rules"/>-->
 <!--    <menuitem id="menu_bid_rules" name="Bid" parent="menu_auction_root" action="action_bid_rules" sequence="100"/>-->
-    <menuitem id="menu_bid_rules" name="Bid Rules" parent="menu_auction_root" action="action_bid_rules"/>
+    <menuitem id="menu_bid"
+              name="Bidding"
+              parent="menu_auction_root"/>
+    <menuitem id="menu_bid_rules" name="Bidding Rules" parent="menu_bid" action="action_bid_rules"/>
 
 
-    <menuitem id="bid_logs_menu" name="Bid Logs" parent="menu_auction_root" sequence="20" action="action_bid_logs"/>
+    <menuitem id="bid_logs_menu" name="Bidding Logs" parent="menu_bid" sequence="20" action="action_bid_logs"/>
 
 </odoo>

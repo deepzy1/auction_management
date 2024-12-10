@@ -9,7 +9,7 @@
 
 
 
-        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction_styles.css"/>
+        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction.css"/>
 
         <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
 
