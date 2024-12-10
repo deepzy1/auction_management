@@ -14,6 +14,9 @@
         "views/user_registartion.xml",
         "views/login.xml",
         "views/add_property.xml",
+        "views/bid_rules_views.xml",
+        "views/new_auction.xml",
+        "views/bid_logs.xml",
         "views/menu.xml",
     ],
 

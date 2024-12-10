@@ -3,4 +3,9 @@ access_asset_category,access.asset.category,model_asset_category,base.group_user
 access_new_property,access.new.property,model_new_property,base.group_user,1,1,1,1
 access_property_image,access.property.image,model_property_image,base.group_user,1,1,1,1
 access_auction_user,access_auction_user,model_auction_user,base.group_user,1,0,0,0
+access_bid_rules_user,bid.rules user,model_bid_rules,,1,1,1,1
+access_bid_rules_manager,bid.rules manager,model_bid_rules,,1,1,1,1
+access_new_auction,access.new.auction,model_new_auction,base.group_user,1,1,1,1
+access_bid_logs_user,bid.logs user,model_bid_logs,base.group_user,1,1,1,0
+access_bid_logs_manager,bid.logs manager,model_bid_logs,base.group_system,1,1,1,1
 
