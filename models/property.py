@@ -17,6 +17,7 @@ class NewProperty(models.Model):
 
 
 
+
 class PropertyImage(models.Model):
     _name="property.image"
     _description=" Property Images"

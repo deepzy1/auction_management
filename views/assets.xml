@@ -6,6 +6,13 @@
 <!--             <link rel="stylesheet" href="auction_management/static/src/js/script.js"/>-->
             <script type="text/javascript" src="/auction_management/static/src/js/script.js"></script>
 
+
+
+
+        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction_styles.css"/>
+
+        <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
+
         </xpath>
     </template>
 </odoo>

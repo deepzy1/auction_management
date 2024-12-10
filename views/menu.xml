@@ -28,9 +28,11 @@
     <menuitem id="menu_auction_users" name="Users" parent="menu_auction_root" action="action_auction_users"/>
 
 
-    <menuitem id="menu_bid_rules" name="Manage Bid Rules" parent="menu_auction_root" action="action_bid_rules"/>
+<!--    <menuitem id="menu_bid_rules" name="Manage Bid Rules" parent="menu_auction_root" action="action_bid_rules"/>-->
+<!--    <menuitem id="menu_bid_rules" name="Bid" parent="menu_auction_root" action="action_bid_rules" sequence="100"/>-->
+    <menuitem id="menu_bid_rules" name="Bid Rules" parent="menu_auction_root" action="action_bid_rules"/>
 
 
-    <menuitem id="bid_logs_menu" name="Bid Logs" parent="menu_bid_rules" sequence="20" action="action_bid_logs"/>
+    <menuitem id="bid_logs_menu" name="Bid Logs" parent="menu_auction_root" sequence="20" action="action_bid_logs"/>
 
 </odoo>

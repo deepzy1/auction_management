@@ -24,6 +24,8 @@
             'web.assets_frontend': [
                 'auction_management/static/src/css/style.css',
                 'auction_management/static/src/js/script.js',
+                'auction_management/static/src/js/auction.js',
+                'auction_management/static/src/css/auction_styles.css',
             ],
         },
 

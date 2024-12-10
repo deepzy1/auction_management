@@ -46,6 +46,7 @@ class BidRules(models.Model):
 class BidLogs(models.Model):
     _name = "bid.logs"
     _description = "Captures all the bidding information"
+    _rec_name = "auction_id"
 
     user_id = fields.Many2one('res.users', string="Bidder", required=True)
     auction_id = fields.Many2one('new.auction', string="Auction", required=True)

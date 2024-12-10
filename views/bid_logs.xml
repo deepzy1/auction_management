@@ -1,6 +1,4 @@
 <odoo>
-
-
     <record id="view_bid_logs_list" model="ir.ui.view">
         <field name="name">bid.logs.list</field>
         <field name="model">bid.logs</field>

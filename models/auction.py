@@ -14,8 +14,7 @@ class NewAuction(models.Model):
     end_date = fields.Datetime(string="End DateTime", required=True)
     extend_by = fields.Datetime(string="Extend By")
     # highest_bid = fields.Float(string="Highest Bid", default=0.0, readonly=True)
-    bid_id = fields.Many2one('bid.logs', string="Bid Logs")
-
+    bids = fields.One2many('bid.logs', 'auction_id', string="Bid Logs")
 
     highest_bid = fields.Float(string="Highest Bid", compute="_compute_highest_bid", store=True)
 

@@ -40,7 +40,7 @@
                             <field name="start_date"/>
                             <field name="end_date"/>
                             <field name="extend_by"/>
-                            <field name="bid_id"/>
+                            <field name="bids"/>
                         </group>
                     </group>
                 </sheet>
