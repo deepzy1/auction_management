@@ -5,11 +5,40 @@
         <t t-call-assets="web.assets_frontend"/>
 
         <!-- Load your custom CSS -->
-        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/style.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/style.css"/> -->
 
-        <script type="text/javascript" src="/auction_management/static/src/js/script.js"></script>
+        <script type="text/javascript" src="/auction_management/static/src/js/refister.js"></script>
 
         <xpath expr="//main" position="replace">
+        <!-- Custom Header -->
+                <header>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="/">Auction System</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/home">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/auction/register">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/auction/login">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Auctions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/properties">Properties</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
             <main class="container mt-5">
                 <h2 class="text-center">Register</h2>
                 <form action="/auction/register/submit" method="post" class="mt-4">
