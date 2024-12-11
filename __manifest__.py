@@ -6,6 +6,7 @@
     "sequence":"3",
     "data":[
         "security/ir.model.access.csv",
+        "data/cron.xml",
         "views/asset_category.xml",
         "views/new_property.xml",
         "views/new_auction.xml",

@@ -11,12 +11,25 @@
 
     <menuitem id="menu_new_auction"
               name="Auction"
-              parent="menu_auction_root"
+              parent="menu_auction_root"/>
+
+    <menuitem id="menu_active_auction"
+              name="Active Auction"
+              parent="menu_new_auction"
+              sequence="2"
               action="action_new_auction"/>
+    
+    <menuitem id="menu_completed_auction"
+              name="Completed Auction"
+              parent="menu_new_auction"
+              sequence="4"
+              action="action_new_auction_completed_auction"/>
+
 
     <menuitem id="menu_auction_users"
-              name="Users"
-              parent="menu_auction_root"
+              name="Auction Users"
+              parent="menu_new_auction"
+              sequence="6"
               action="action_auction_users"/>
 
     <menuitem id="menu_configuration"

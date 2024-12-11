@@ -1,0 +1,12 @@
+<odoo>
+    <record id="ir_cron_update_auction_status" model="ir.cron">
+        <field name="name">Update Auction Status</field>
+        <field name="model_id" ref="model_new_auction"/>
+        <field name="state">code</field>
+        <field name="code">model.auto_update_status()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="nextcall">2024-12-10 00:00:00</field>  <!-- Set an appropriate start time -->
+        <field name="active" eval="True"/>
+    </record>
+</odoo>
