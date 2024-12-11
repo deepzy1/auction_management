@@ -9,10 +9,28 @@
               parent="menu_auction_root"
               action="action_new_property"/>
 
-     <menuitem id="menu_new_auction"
+    <menuitem id="menu_new_auction"
               name="Auction"
-              parent="menu_auction_root"
+              parent="menu_auction_root"/>
+
+    <menuitem id="menu_active_auction"
+              name="Active Auction"
+              parent="menu_new_auction"
+              sequence="2"
               action="action_new_auction"/>
+
+    <menuitem id="menu_completed_auction"
+              name="Completed Auction"
+              parent="menu_new_auction"
+              sequence="4"
+              action="action_new_auction_completed_auction"/>
+
+
+    <menuitem id="menu_auction_users"
+              name="Auction Users"
+              parent="menu_new_auction"
+              sequence="6"
+              action="action_auction_users"/>
 
     <menuitem id="menu_configuration"
               name="Configuration"
@@ -25,17 +43,17 @@
               action="action_asset_category"/>
 
 
-    <menuitem id="menu_auction_users" name="Users" parent="menu_auction_root" action="action_auction_users"/>
+    <menuitem id="menu_bid_rules"
+              name="Bidding Rules"
+              parent="menu_configuration"
+              action="action_bid_rules"/>
 
 
-<!--    <menuitem id="menu_bid_rules" name="Manage Bid Rules" parent="menu_auction_root" action="action_bid_rules"/>-->
-<!--    <menuitem id="menu_bid_rules" name="Bid" parent="menu_auction_root" action="action_bid_rules" sequence="100"/>-->
-    <menuitem id="menu_bid"
-              name="Bidding"
-              parent="menu_auction_root"/>
-    <menuitem id="menu_bid_rules" name="Bidding Rules" parent="menu_bid" action="action_bid_rules"/>
+    <menuitem id="bid_logs_menu"
+              name="Bidding Logs"
+              parent="menu_new_auction"
+              sequence="5"
+              action="action_bid_logs"/>
 
-
-    <menuitem id="bid_logs_menu" name="Bidding Logs" parent="menu_bid" sequence="20" action="action_bid_logs"/>
 
 </odoo>

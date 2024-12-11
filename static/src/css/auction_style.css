@@ -1,0 +1,43 @@
+.custom-header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.custom-header nav ul li {
+    margin: 0 15px;
+}
+
+.custom-header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.welcome-banner {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.welcome-banner .content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.custom-footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

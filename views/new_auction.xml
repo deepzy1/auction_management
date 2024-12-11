@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+        <!-- Active Auctions -->
     <record id="action_new_auction" model="ir.actions.act_window">
         <field name="name">New Auction</field>
         <field name="res_model">new.auction</field>
+        <field name="domain">[('status', '!=', 'closed'), ('status', '!=', 'finished')]</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                     Create New Auction
                 </p>
         </field>
+    </record>
+
+        <!-- Completed Auctions -->
+    <record id="action_new_auction_completed_auction" model="ir.actions.act_window">
+            <field name="name">Completed Auction</field>
+            <field name="res_model">new.auction</field>
+            <field name="domain">['|',('status', '=', 'closed'), ('status', '=', 'finished')]</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Empty
+                </p>
+            </field>
     </record>
 
     <record id="view_action_new_auction_list" model="ir.ui.view">
@@ -18,6 +34,7 @@
             <list string="Auctions">
                 <field name="auction_name"/>
                 <field name="initial_price"/>
+                <field name="status"/>
 
             </list>
         </field>
@@ -28,6 +45,18 @@
         <field name="model">new.auction</field>
         <field name="arch" type="xml">
             <form string="Auctions">
+                <header>
+                <button name="action_confirm" type="object" string="Confirm" invisible="status!='draft'"
+                    class="oe_highlight"/>
+                <button name="action_run" type="object" string="Start Auction" invisible="status!='confirmed'"
+                    class="oe_highlight"/>
+                <button name="action_extend" type="object" string="Extend" invisible="status!='running'"
+                    class="oe_highlight"/>
+                <button name="action_close" type="object" string="Close" invisible="status!='running'"
+                    class="oe_highlight"/>
+
+                <field name="status" widget="statusbar" statusbar_visible="draft,confirmed,running,extended,closed,finished"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -37,15 +66,17 @@
                             <field name="reserve_price"/>
                         </group>
                         <group>
-                            <field name="start_date"/>
+                            <!-- <field name="start_date"/> -->
                             <field name="end_date"/>
+                            <field name="start_date"/>
                             <field name="extend_by"/>
-                            <field name="bids"/>
                         </group>
                     </group>
                 </sheet>
             </form>
         </field>
+        <!-- <field name="refresh">1000</field> Refresh seconds -->
+
     </record>
 
 
