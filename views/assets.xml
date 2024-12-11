@@ -1,17 +1,16 @@
 <!-- static/src/xml/assets.xml -->
 <odoo>
-    <template id="custom_assets"  name="Property Website Assets">
+    <template id="custom_assets" name="Property Website Assets">
         <xpath expr="." position="inside">
             <link rel="stylesheet" href="auction_management/static/src/css/style.css"/>
-<!--             <link rel="stylesheet" href="auction_management/static/src/js/script.js"/>-->
+            <!--             <link rel="stylesheet" href="auction_management/static/src/js/script.js"/>-->
             <script type="text/javascript" src="/auction_management/static/src/js/script.js"></script>
 
 
+            <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction.css"/>
+            <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction_style.css"/>
 
-
-        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction.css"/>
-
-        <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
+            <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
 
         </xpath>
     </template>

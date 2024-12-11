@@ -1,43 +1,26 @@
-.custom-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.custom-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.custom-header nav ul li {
-    margin: 0 15px;
-}
-
-.custom-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.welcome-banner {
+.home-header {
     background: linear-gradient(to right, #667eea, #764ba2);
     color: white;
-    text-align: center;
-    padding: 50px 20px;
+    padding: 30px;
+    border-radius: 8px;
 }
 
-.welcome-banner .content {
-    max-width: 800px;
-    margin: auto;
+.cta-section .btn {
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-.custom-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 10px;
+.featured-properties h2 {
+    margin-bottom: 30px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }

@@ -7,6 +7,7 @@
     "data":[
         "security/ir.model.access.csv",
         "data/crone.xml",
+        "base.xml",
         "views/asset_category.xml",
         "views/new_property.xml",
         "views/property_template.xml",
@@ -16,24 +17,23 @@
         "views/login.xml",
         "views/add_property.xml",
         "views/bid_rules_views.xml",
-        # "views/auction_templates.xml",
+        "views/home.xml",
         "views/new_auction.xml",
         "views/bid_logs.xml",
+
         # "views/auctions.xml",
         "views/menu.xml",
     ],
 
     'assets': {
             'web.assets_frontend': [
-                'web/static/lib/owl/owl.js',  # Ensure core dependencies are included
-                'web/static/src/js/framework/jquery.js',  # Include jQuery if needed
-                'web/static/src/js/core/ajax.js',  # Required for AJAX
                 'auction_management/static/src/css/style.css',
                 'auction_management/static/src/js/script.js',
                 'auction_management/static/src/js/auction.js',
                 'auction_management/static/src/css/auction.css',
                 'auction_management/static/src/css/auction_style.css',
                 'auction_management/static/src/js/auction_script.js',
+                'auction_management/static/src/js/home.js',
             ],
         },
 
