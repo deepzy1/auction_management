@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_bid_logs_list" model="ir.ui.view">
+        <field name="name">bid.logs.list</field>
+        <field name="model">bid.logs</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="user_id"/>
+                <field name="auction_id"/>
+                <field name="property_id"/>
+                <field name="bid_amount"/>
+                <field name="bid_time"/>
+                <field name="is_highest"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_bid_logs" model="ir.actions.act_window">
+        <field name="name">Bid Logs</field>
+        <field name="res_model">bid.logs</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_bid_logs_list"/>
+    </record>
+</odoo>

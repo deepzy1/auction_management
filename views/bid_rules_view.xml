@@ -1,0 +1,45 @@
+<odoo>
+    <!-- Form view for bid.rules -->
+    <record id="view_bid_rules_form" model="ir.ui.view">
+        <field name="name">bid.rules.form</field>
+        <field name="model">bid.rules</field>
+        <field name="arch" type="xml">
+            <form string="Bid Rules">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+<!--                        <field name="active"/>-->
+                        <field name="from_price"/>
+                        <field name="to_price"/>
+                        <field name="increment_by"/>
+<!--                        <field name="minimum_increment"/>-->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- list view for bid.rules -->
+    <record id="view_bid_rules_list" model="ir.ui.view">
+        <field name="name">bid.rules.list</field>
+        <field name="model">bid.rules</field>
+        <field name="arch" type="xml">
+            <list string="Bid Rules">
+                <field name="name"/>
+                <field name="from_price"/>
+                <field name="to_price"/>
+                <field name="increment_by"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action to open bid.rules records -->
+    <record id="action_bid_rules" model="ir.actions.act_window">
+        <field name="name">Bid Rules</field>
+        <field name="res_model">bid.rules</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+
+
+</odoo>

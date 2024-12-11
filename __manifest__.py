@@ -10,6 +10,8 @@
         "views/asset_category.xml",
         "views/new_property.xml",
         "views/new_auction.xml",
+        "views/bid_logs.xml",
+        "views/bid_rules_view.xml",
         "views/property_template.xml",
         "views/assets.xml",
         "views/auction_user_views.xml",

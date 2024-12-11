@@ -15,6 +15,7 @@ class NewProperty(models.Model):
     state=fields.Char(string="State", required=True)
     price=fields.Float(string="Price", required=True)
     document=fields.Binary(string="Document",required=True)
+    property=fields.Many2one('bid.logs', string="Property", ondelete="cascade")
 
 
 
