@@ -5,6 +5,7 @@ from datetime import date,datetime
 class NewAuction(models.Model):
     _name="new.auction"
     _description="New Auction"
+    _rec_name="auction_name"
 
     auction_name=fields.Char(string="Auction Name", required=True, help="Enter auction name")
     auction_property=fields.Many2one("new.property", string="Property")
@@ -13,7 +14,8 @@ class NewAuction(models.Model):
     start_date=fields.Datetime(string="Start DateTime")
     end_date=fields.Datetime(string="End DateTime")
     extend_by=fields.Datetime(string="Extend By")
-    bid_id=fields.Many2one('bid.logs', string="Bid", ondelete="cascade")
+    bid_ids=fields.One2many('bid.logs', 'auction_id', string="Bid", ondelete="cascade")
+    highest_bid=fields.Float(string="Highest_bid", compute="_compute_highest_bid", default=lambda self: self.initial_price)
 
     status=fields.Selection([
         ('draft','Draft'),('confirmed','Confirmed'),('running','Running'),
@@ -21,6 +23,14 @@ class NewAuction(models.Model):
     ],default='draft'
     )
 
+    @api.depends("bid_ids.bid_amount")
+    def _compute_highest_bid(self):
+        for rec in self:
+            if rec.bid_ids:
+                rec.highest_bid=max(rec.bid_ids.mapped('bid_amount'))
+            else:
+                rec.highest_bid=rec.initial_price
+            
 
 
     def action_confirm(self):

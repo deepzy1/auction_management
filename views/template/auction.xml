@@ -1,0 +1,74 @@
+<odoo>
+    <template id="auction_list_template" inherit_id="web.assets_frontend" name="Auction List">
+        <!-- Load frontend assets -->
+        <t t-call-assets="web.assets_frontend"/>
+
+        <!-- Load your custom CSS -->
+        <!-- <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/style.css"/> -->
+        <script type="text/javascript" src="/auction_management/static/src/js/auction.js"></script>
+        <header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">Auction System</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auction/register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auction/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auction/list">Auctions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/properties">Properties</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+        <div class="home-container mt-5">
+            <h2 class="text-center">Available Auctions</h2>
+            <div class="row mt-4">
+                <t t-foreach="auctions" t-as="auction">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <h4>
+                            <t t-esc="auction.auction_name" />
+                        </h4>
+                        <p>Initial Price: $
+                            <t t-esc="auction.initial_price" />
+                        </p>
+                        <p>Current Bid: $
+                            <t t-esc="auction.highest_bid" />
+                        </p>
+                        <p>Status:
+                            <t t-esc="auction.status" />
+                        </p>
+                        <div>
+                            <input type="number"
+                                   t-att-id="'bid-' + str(auction.id)"
+                                   placeholder="Enter bid amount"
+                                   class="form-control" />
+                            <button class="btn btn-primary place-bid-btn" data-auction-id="${auction.id}"
+                                        type="button">Place Bid
+                                </button>
+                        </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </template>
+</odoo>
+
+
+
+

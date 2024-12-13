@@ -71,6 +71,23 @@
                             <field name="extend_by"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Bidders">
+                            <group>
+                            <field name="highest_bid"/>
+                            </group>
+                            <field name="bid_ids">
+                                    <list>
+                                        <field name="user_id"/>
+                                        <field name="auction_id"/>
+                                        <field name="property_id"/>
+                                        <field name="bid_amount"/>
+                                        <field name="bid_time"/>
+                                    </list>
+                            </field>
+
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

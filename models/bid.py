@@ -46,37 +46,35 @@ class BidRules(models.Model):
 class BidLogs(models.Model):
     _name = "bid.logs"
     _description = "Captures all the bidding information"
+    _order="bid_amount desc"
 
     user_id = fields.Many2one('res.users', string="Bidder", required=True)
-    auction_id = fields.Many2one('new.auction', string="Auction", required=True)
+    auction_id = fields.Many2one('new.auction', string="Auction")
     property_id = fields.Many2one('new.property', string="Property", related="auction_id.auction_property", store=True)
     bid_amount = fields.Float(string="Bid Amount", required=True)
     bid_time = fields.Datetime(string="Bid Time", default=lambda self: fields.Datetime.now())
     is_highest = fields.Boolean(string="Is Highest Bid", default=False)
+    highest_bid=fields.Float(string="Highest Bid", related='auction_id.highest_bid', store=True)
+
 
     @api.model
-    def log_bid(self, user_id, auction_id, bid_amount):
-        """Logs a new bid and updates the highest bid."""
-        # Check if the bid is higher than the current highest
-        existing_logs = self.search([('auction_id', '=', auction_id)], order="bid_amount desc", limit=1)
-        if existing_logs and bid_amount <= existing_logs.bid_amount:
-            raise ValidationError("Bid amount must be higher than the current highest bid.")
+    def create(self, vals):
+        # Get the auction record before creating the bid
+        auction = self.env['new.auction'].browse(vals.get('auction_id'))
 
-        # Log the bid
-        new_log = self.create({
-            'user_id': user_id,
-            'auction_id': auction_id,
-            'bid_amount': bid_amount,
-            'is_highest': True
-        })
+        # Check if the bid amount is greater than the current highest bid
+        if auction and vals.get('bid_amount') <= auction.highest_bid:
+            raise ValidationError('Bid amount must be higher than the current highest bid.')
 
-        # Update previous highest bid
-        if existing_logs:
-            existing_logs.is_highest = False
+        # Create the bid
+        bid = super(BidLogs, self).create(vals)
 
-        # Save log to a file
-        self.save_log_to_file(new_log)
-        return new_log
+        # After creating the bid, update the auction's highest bid
+        if bid.bid_amount > auction.highest_bid:
+            auction.write({'highest_bid': bid.bid_amount})
+
+        return bid
+        
 
     def save_log_to_file(self, log):
         """Save log details to a designated file."""

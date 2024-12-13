@@ -22,7 +22,7 @@
                                     <a class="nav-link" href="/auction/login">Login</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Auctions</a>
+                                    <a class="nav-link" href="/auction/list">Auctions</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/properties">Properties</a>
