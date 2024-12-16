@@ -1,0 +1,80 @@
+<style>
+/* Main Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.auction-app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.auction-main {
+    flex: 1;
+}
+
+/* Header Styles */
+.auction-header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+.auction-footer {
+    background-color: #2c3e50;
+}
+
+.auction-footer a {
+    color: #ecf0f1;
+    transition: color 0.3s ease;
+}
+
+.auction-footer a:hover {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Card Styles */
+.auction-card, .property-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auction-card:hover, .property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .auction-card, .property-card {
+        margin-bottom: 20px;
+    }
+}
+</style>

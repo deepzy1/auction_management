@@ -1,0 +1,235 @@
+/* animation.css */
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #002244;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand {
+    color: #f8b400;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar-brand:hover {
+    color: #f9d371;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f9d371;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #003366, #0055aa), url('/auction_management/static/src/img/hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-section .btn {
+    background-color: #f8b400;
+    border: none;
+    color: #002244;
+    padding: 15px 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.hero-section .btn:hover {
+    background-color: #f9d371;
+    color: #fff;
+}
+
+/* Featured Auctions Section */
+.container h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #002244;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #003366;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card .btn {
+    background-color: #003366;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #f8b400;
+    color: #002244;
+}
+
+/* How It Works Section */
+.bg-light {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.bg-light h2 {
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.bg-light .col-md-4 i {
+    font-size: 3rem;
+    color: #f8b400;
+    margin-bottom: 20px;
+}
+
+.bg-light h4 {
+    font-size: 1.5rem;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.bg-light p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #002244;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #f8b400;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #f9d371;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animations */
+.hero-section {
+    animation: fadeIn 1.5s ease-out;
+}
+
+.card {
+    animation: slideIn 1.2s ease;
+}
+
+.bg-light {
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+        padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .hero-section .btn {
+        font-size: 0.9rem;
+    }
+
+    .bg-light h2 {
+        font-size: 2rem;
+    }
+}

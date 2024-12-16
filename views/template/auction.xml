@@ -1,0 +1,39 @@
+<odoo>
+    <template id="auction_list_template" name="Auction List">
+      <t t-call-assets="web.assets_frontend"/>
+
+        <!-- Load your custom CSS -->
+        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction.css"/>
+<!--         <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction.css"/>-->
+            <t t-set="title">Available Auctions</t>
+            <div class="container py-5">
+                <h2 class="text-center mb-5">Available Auctions</h2>
+                <div class="row">
+                    <t t-foreach="auctions" t-as="auction">
+                        <div class="col-md-4 mb-4">
+                            <div class="card auction-card h-100">
+<!--                                <img t-att-src="auction.image_url" class="card-img-top" alt="Auction Image"/>-->
+                                <div class="card-body">
+                                    <h5 class="card-title"><t t-esc="auction.auction_name"/></h5>
+                                    <p class="card-text">Initial Price: $<t t-esc="auction.initial_price"/></p>
+                                    <p class="card-text">Current Bid: $<t t-esc="auction.highest_bid"/></p>
+                                    <p class="card-text">Status: <span t-attf-class="badge badge-#{auction.status == 'active' and 'success' or 'secondary'}"><t t-esc="auction.status"/></span></p>
+                                </div>
+                                <div class="card-footer">
+                                    <form t-attf-action="/auction/place_bid/#{auction.id}" method="post" class="bid-form">
+                                        <div class="input-group">
+                                            <input type="number" t-att-id="'bid-' + str(auction.id)" name="bid_amount" class="form-control" placeholder="Enter bid amount" required="required"/>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary place-bid-btn" type="submit">Place Bid</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+
+    </template>
+</odoo>
