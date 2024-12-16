@@ -48,7 +48,7 @@ class BidLogs(models.Model):
     _description = "Captures all the bidding information"
     _order="bid_amount desc"
 
-    user_id = fields.Many2one('res.users', string="Bidder", required=True)
+    user_id = fields.Many2one('auction.user', string="Bidder", required=True)
     auction_id = fields.Many2one('new.auction', string="Auction")
     property_id = fields.Many2one('new.property', string="Property", related="auction_id.auction_property", store=True)
     bid_amount = fields.Float(string="Bid Amount", required=True)

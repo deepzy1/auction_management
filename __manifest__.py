@@ -29,10 +29,6 @@
                 'auction_management/static/src/css/user.css',
                 # 'auction_management/static/src/js/auction.js', 
             ],
-            'web.assets_backend': [
-                'web.ajax',
-                # '/auction_management/static/src/js/auction.js',
-        ],
         },
 
     "installable":True,
