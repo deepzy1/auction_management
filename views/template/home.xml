@@ -25,6 +25,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/auction/login">Login</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="/auction/logout">Logout</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="/auction/list">Auctions</a>
                     </li>
@@ -32,6 +33,10 @@
                         <a class="nav-link" href="/properties">Properties</a>
                     </li>
                 </ul>
+                <div class="d-flex">
+                    <input type="text" name="query" placeholder="Search for Auction" class="form-control me-2"/>
+                    <button type="submit" class="btn btn-outline-dark btn-lg">Search</button>
+                </div>
             </div>
         </nav>
 
@@ -41,44 +46,63 @@
             <div class="container-fluid hero-section">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1 class="display-4">Discover        Auctions</h1>
+                        <h1 class="display-4">Discover Auctions</h1>
                         <p class="lead">Participate in live property auctions from the comfort of your home.</p>
                         <a href="/auction/register" class="btn btn-primary btn-lg">Get Started</a>
                     </div>
                     <div class="col-md-6">
                         <!-- Hero Image Placeholder -->
-                        <!-- Uncomment and update with the image path if necessary -->
-                        <!-- <img src="/auction_management/static/src/img/auction-hero.jpg" alt="Auction Hero" class="img-fluid rounded shadow-lg"/> -->
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- Featured Auctions Section -->
-        <div class="container mt-5">
+        <div class="container py-5">
             <h2 class="text-center mb-4">Featured Auctions</h2>
             <div class="row">
-                <div t-foreach="featured_auctions" t-as="auction" class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <img t-att-src="auction.image_url" class="card-img-top" t-att-alt="auction.name"/>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <t t-esc="auction.name"/>
-                            </h5>
-                            <p class="card-text">
-                                <t t-esc="auction.description"/>
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted">Starting bid: $
-                                    <t t-esc="auction.starting_bid"/>
-                                </span>
-                                <a t-att-href="'/auction/detail/%s' % auction.id"
-                                   class="btn btn-sm btn-outline-secondary">View Details
-                                </a>
+                <t t-foreach="featured_auctions" t-as="auction">
+                    <div class="col-md-4 mb-4">
+                        <div class="card property-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><t t-esc="auction.auction_name"/></h5>
+                                <p class="card-text">
+                                    <strong>Property:</strong> <t t-esc="auction.auction_property.name"/><br/>
+                                    <strong>Initial Price:</strong> <t t-esc="auction.initial_price"/><br/>
+                                    <strong>Start Date:</strong> <t t-esc="auction.start_date"/><br/>
+                                    <!-- Placeholder for countdown -->
+                                    <!-- <strong>Countdown:</strong> <span id="auction-countdown"></span><br/>
+
+                                    <script>
+                                        // Parse the auction start date into JavaScript Date object
+                                        let auctionStartDate = new Date('<t t-esc="auction.start_date"/>'); 
+
+                                        // Function to calculate and update the countdown
+                                        function updateCountdown() {
+                                            let now = new Date();
+                                            let diff = auctionStartDate - now;
+
+
+                                                let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                                let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                                                let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                                                // Format the time as days:hours:minutes:seconds
+                                                let timeString = `${days}d:${String(hours).padStart(2, '0')}h:${String(minutes).padStart(2, '0')}m:${String(seconds).padStart(2, '0')}s`;
+                                                document.getElementById('auction-countdown').innerHTML = timeString;
+
+                                        }
+
+                                        // Update the countdown every second
+                                        let timerInterval = setInterval(updateCountdown, 1000);
+                                    </script> -->
+                                    <strong>End Date:</strong> <t t-esc="auction.end_date"/>
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </t>
             </div>
         </div>
 
@@ -105,6 +129,8 @@
                 </div>
             </div>
         </div>
+
+
 
     </template>
 </odoo>

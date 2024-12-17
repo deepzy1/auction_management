@@ -5,6 +5,8 @@
 
         <!-- Load your custom CSS -->
          <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction.css"/>
+
+        
             <t t-set="title">Login - Auction Management System</t>
             <div class="container mt-5">
                 <div class="row justify-content-center">
