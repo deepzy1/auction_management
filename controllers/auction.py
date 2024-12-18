@@ -46,7 +46,7 @@ class AuctionController(http.Controller):
                 return request.redirect(f'/auction/list?error=Bid must be higher than the current highest bid.')
 
             # Log the bid
-            request.env['bid.logs'].sudo().create({
+            bid_log=request.env['bid.logs'].sudo().create({
                 'user_id': auction_user.id,  # Store the custom auction user
                 'auction_id': auction_id,
                 'bid_amount': bid_amount,
@@ -54,6 +54,9 @@ class AuctionController(http.Controller):
 
             # Update the highest bid in the auction
             auction.sudo().write({'highest_bid': bid_amount})
+
+            # Send confirmation email using the model function
+            bid_log.sudo().bid_confirmation_email(auction_user, auction, bid_amount)
 
             return request.redirect(f'/auction/list?success_message=Your bid has been placed successfully.')
 

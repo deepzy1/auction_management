@@ -4,7 +4,7 @@
     "license":"LGPL-3",
     "version":"18.0.1.0",
     "sequence":"3",
-    'depends': ['web','base'],
+    'depends': ['web','base','mail'],
     "data":[
         "security/ir.model.access.csv",
         "data/cron.xml",
@@ -28,13 +28,14 @@
                 'auction_management/static/src/css/home.css',
                 'auction_management/static/src/css/user.css',
                 # 'auction_management/static/src/js/countdown.js', 
+                '/auction_management/static/src/js/otp.js',
                 'auction_management/static/src/css/auction.css',
                 'auction_management/static/src/css/main.css',
                 'auction_management/static/src/css/animation.css',
             ],
             'web.assets_backend': [
                 'web.ajax',
-                # '/auction_management/static/src/js/auction.js',
+                # '/auction_management/static/src/js/otp.js',
         ],
         },
 

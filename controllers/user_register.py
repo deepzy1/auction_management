@@ -1,4 +1,4 @@
-from odoo import http
+from odoo import http, fields
 from odoo.http import request
 
 
@@ -58,3 +58,54 @@ class AuctionUserController(http.Controller):
             print(f"Remaining session key after logout: {key}")
 
         return request.redirect('/auction/login')  # Redirect to login page
+    
+    @http.route('/auction/register/send_otp', type='json', auth='public', csrf=False)
+    def send_otp(self):
+        """Send OTP to the user's email."""
+        data = request.httprequest.get_json()
+        print(f"data_is:{data}")
+        email = data.get('email')
+        if not email:
+            return {'success': False, 'error': 'Email is required.'}
+
+        # Call the model method to generate and send the OTP
+        success = request.env['user.register.otp'].sudo().generate_otp(email)
+        print(f"success_is:{success}")
+        if success:
+            return {'success': True, 'message': 'OTP sent to your email.'}
+        else:
+            return {'success': False, 'error': 'Failed to send OTP. Please try again later.'}
+        
+    
+
+
+    @http.route('/auction/register/verify_otp', type='json', auth='public', csrf=False)
+    def verify_otp(self):
+        """Verify OTP entered by the user."""
+        data = request.httprequest.get_json()
+        otp = data.get('otp')
+        email = data.get('email')
+
+        if not otp or not email:
+            return {'success': False, 'error': 'OTP and email are required.'}
+
+        # Find the OTP record for the given email
+        otp_record = request.env['user.register.otp'].sudo().search([('email', '=', email)], limit=1)
+
+        if not otp_record:
+            return {'success': False, 'error': 'No OTP found for this email.'}
+
+        # Check if the OTP has expired
+        if otp_record.expire_time < fields.Datetime.now():
+            return {'success': False, 'error': 'OTP has expired. Please request a new one.'}
+
+        # Check if the OTP is correct
+        if otp_record.otp == otp:
+            # Mark OTP as verified
+            otp_record.write({'otp_verified': True})
+
+            return {'success': True, 'message': 'OTP verified successfully.'}
+        else:
+            return {'success': False, 'error': 'Invalid OTP. Please try again.'}
+
+        
